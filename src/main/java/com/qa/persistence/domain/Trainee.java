@@ -19,6 +19,8 @@ public class Trainee {
 	@Id
 	private Long id;
 	private String traineeName;
+	@OneToMany(mappedBy="trainee")
+	Set<Classroom> classroom;
 	
 	public Trainee() {
 		
@@ -36,8 +38,7 @@ public class Trainee {
 		this.traineeName = traineeName;
 	}
 	
-	@OneToMany(mappedBy="trainee")
-	Set<Classroom> classroom;
+	
 	
 	
 }

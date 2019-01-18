@@ -16,6 +16,11 @@ public class Classroom {
 	@Id
 	private Long id;
 	private String trainer;
+//	Attempt to join trainee table
+	@ManyToOne
+	@JoinTable(name="CLASSROOM_TRAINEE")
+	Trainee trainee;
+	
 //	Trainees entity yet to be implemented
 //	private Trainee[] trainees;
 	
@@ -43,9 +48,6 @@ public class Classroom {
 //		this.trainees = trainees;
 //	}
 //	
-	@ManyToOne
-	@JoinTable(name="CLASSROOM_TRAINEE")
-	Trainee trainee;
 	
 	
 }
