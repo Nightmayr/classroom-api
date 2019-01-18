@@ -1,7 +1,6 @@
-package com.qa.persistence.repository;
+package com.qa.business.service;
 
-public interface TraineeRepository {
-	
+public interface TraineeService {
 	String getAllTrainees();
 	String addTrainee(String trainee);
 	String deleteTrainee(Long id);
