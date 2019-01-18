@@ -1,12 +1,24 @@
 package com.qa.persistence.repository;
 
 import javax.enterprise.inject.Default;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+
+import com.qa.util.JSONUtil;
 
 	@Transactional(SUPPORTS)
 	@Default
 	public class ClassroomDBRepository implements ClassroomRepository{
-
+		
+		@PersistenceContext(unitName = "primary")
+		private EntityManager manager;
+		
+	
+		@Inject
+		private JSONUtil util;
+		
 		public String getAllClassrooms() {
 			// TODO Auto-generated method stub
 			return null;
