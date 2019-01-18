@@ -27,13 +27,15 @@ import com.qa.util.JSONUtil;
 		
 		public String getAllClassrooms() {
 			Query query = manager.createQuery("SELECT c FROM Classroom c");
-			Collection<Classroom> classrooms = (Collection<Classroom>query.getResultList());
+			Collection<Classroom> classrooms = (Collection<Classroom>)query.getResultList();
 			return util.getJSONForObject(classrooms);
 		}
-
+		
+		@Transactional(REQUIRED)
 		public String addClassroom(String classroom) {
-			// TODO Auto-generated method stub
-			return null;
+			Classroom aClassroom = util.getObjectForJSON(classroom, Classroom.class) ;
+			manager.persist(aClassroom);
+			return "{\"message\": \"classroom sucessfully added\"}";
 		}
 
 		public String deleteClassroom(Long id) {
