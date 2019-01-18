@@ -28,7 +28,7 @@ public class TraineeEndpoint {
 	@Path("/addTrainee")
 	@POST
 	@Produces({"application/json"})
-	public String addClassroom(String trainee) {
+	public String addTrainee(String trainee) {
 		return service.addTrainee(trainee);
 	}
 	
