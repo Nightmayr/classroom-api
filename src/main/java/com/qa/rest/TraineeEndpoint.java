@@ -10,42 +10,43 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import com.qa.business.service.ClassroomService;
+import com.qa.business.service.TraineeService;
 
 @Path("/trainee")
 public class TraineeEndpoint {
 
 	@Inject
-	private ClassroomService service;
+	private TraineeService service;
 	
-	@Path("getAllClassrooms")
+	@Path("getAllTrainees")
 	@GET
 	@Produces({"application/json"})
-	public String getAllClassrooms() {
-		return service.getAllClassrooms();
+	public String getAllTrainees() {
+		return service.getAllTrainees();
 	}
 	
-	@Path("/addClassroom")
+	@Path("/addTrainee")
 	@POST
 	@Produces({"application/json"})
-	public String addClassroom(String classroom) {
-		return service.addClassroom(classroom);
+	public String addClassroom(String trainee) {
+		return service.addTrainee(trainee);
 	}
 	
-	@Path("/updateClassroom/{id}")
+	@Path("/updateTrainee/{id}")
 	@PUT
 	@Produces({"application/json"})
-	public String upddateClassroom(@PathParam("id") Long id, String classroom) {
-		return service.updateClassroom(id, classroom);
+	public String updateTrainee(@PathParam("id") Long id, String trainee) {
+		return service.updateTrainee(id, trainee);
 	}
 	
-	@Path("/deleteClassroom/{id}")
+	@Path("/deleteTrainee/{id}")
 	@DELETE
 	@Produces({"application/json"})
-	public String deleteClassroom(@PathParam("id") Long id) {
-		return service.deleteClassroom(id);
+	public String deleteTrainee(@PathParam("id") Long id) {
+		return service.deleteTrainee(id);
 	}
 	
-	public void setService(ClassroomService service) {
+	public void setService(TraineeService service) {
 		this.service = service;
 	}
 }
