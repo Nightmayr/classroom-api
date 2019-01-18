@@ -19,7 +19,7 @@ public class Classroom {
 //	Attempt to join trainee table
 	@ManyToOne
 	@JoinTable(name="CLASSROOM_TRAINEE")
-	Trainee trainee;
+	Trainee trainees;
 	
 //	Trainees entity yet to be implemented
 //	private Trainee[] trainees;
