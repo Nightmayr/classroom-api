@@ -13,6 +13,14 @@ public class Trainee {
 	private Long id;
 	private String traineeName;
 	
+	public Trainee() {
+		
+	}
+	
+	public Trainee(String traineeName) {
+		this.traineeName = traineeName;
+	}
+	
 	
 	public String getTraineeName() {
 		return traineeName;
@@ -20,6 +28,8 @@ public class Trainee {
 	public void setTraineeName(String traineeName) {
 		this.traineeName = traineeName;
 	}
+	
+	
 	
 	
 }
