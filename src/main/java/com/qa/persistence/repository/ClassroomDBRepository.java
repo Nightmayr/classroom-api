@@ -37,15 +37,45 @@ import com.qa.util.JSONUtil;
 			manager.persist(aClassroom);
 			return "{\"message\": \"classroom sucessfully added\"}";
 		}
-
+		
+		@Transactional(REQUIRED)
 		public String deleteClassroom(Long id) {
-			// TODO Auto-generated method stub
+			Classroom classroom = findClassroom(id);
+			manager.remove(classroom);
+			return "{\"message\": \"classroom sucessfully deleted\"}";
+		}
+		
+//		@Override
+		@Transactional(REQUIRED)
+		public String updateClassroom(Long id, String classroom) {
+			Classroom foundClassroom = findClassroom(id);
+			Classroom jsonClassroom = util.getObjectForJSON(classroom, Classroom.class);
+			if(foundClassroom!=null) {
+				manager.remove(foundClassroom);
+				manager.persist(jsonClassroom);
+				return "{\"message\": \"classroom sucessfully updated\"}";
+			}
 			return null;
 		}
+		
+		private Classroom findClassroom(Long id) {
+			return manager.find(Classroom.class, id);
+		}
+		
+		public EntityManager getManager() {
+			return manager;
+		}
 
-		public String updateClassroom(Long id, String classroom) {
-			// TODO Auto-generated method stub
-			return null;
+		public void setManager(EntityManager manager) {
+			this.manager = manager;
+		}
+
+		public JSONUtil getUtil() {
+			return util;
+		}
+
+		public void setUtil(JSONUtil util) {
+			this.util = util;
 		}
 		
 
