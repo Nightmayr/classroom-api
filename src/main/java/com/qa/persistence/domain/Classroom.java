@@ -13,7 +13,7 @@ public class Classroom {
 	private Long id;
 	private String trainer;
 //	Trainees entity yet to be implemented
-//	private Trainee[] trainees;
+	private Trainee[] trainees;
 	
 	public Classroom() {
 		
@@ -29,6 +29,14 @@ public class Classroom {
 
 	public void setTrainer(String trainer) {
 		this.trainer = trainer;
+	}
+
+	public Trainee[] getTrainees() {
+		return trainees;
+	}
+
+	public void setTrainees(Trainee[] trainees) {
+		this.trainees = trainees;
 	}
 	
 	
